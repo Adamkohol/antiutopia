@@ -1,0 +1,101 @@
+WindowManager:
+    Menu:
+    GameView:
+    Game:
+
+<Menu>:
+    name: "mainmenu"
+
+    GridLayout:
+        cols:1
+        size_hint: (0.5, 1)
+        pos_hint:{"center_x":0.5, "top":1}
+
+
+        Image:
+            source: 'test.jpg'
+
+        Label:
+            font_size: 30
+            text: 'ахахах я название'
+
+        Button:
+            font_size: 30
+            text: 'Играть'
+            size_hint: (.5, None)
+            pos_hint:{"center_x":0.5, "top":1}
+            on_release:
+                app.root.current = "gameview"
+                root.manager.transition.direction = "left"
+
+
+
+        Button:
+            font_size: 30
+            text: 'выход'
+            size_hint: (.5, None)
+            pos_hint:{"center_x":0.5, "top":1}
+
+
+
+
+<GameView>:
+    name: "gameview"
+
+    GridLayout:
+        cols:1
+        size_hint: (0.5, 1)
+        pos_hint:{"center_x":0.5, "top":1}
+
+
+
+
+        FloatLayout:
+
+            Button:
+                font_size: 30
+                text: 'Игра 1'
+                size_hint: (1, None)
+                pos_hint:{'x': 0,'y': .7}
+
+            Button:
+                font_size: 30
+                text: 'Игра 2'
+                size_hint: (1, None)
+                pos_hint:{'x': 0,'y': .5}
+
+            Button:
+                font_size: 30
+                text: 'Игра 3'
+                size_hint:( 1, None)
+                pos_hint:{'x': 0,'y': .3}
+
+            Button:
+                font_size: 30
+                text: 'Игра 4'
+                size_hint: (1, None)
+                pos_hint:{'x': 0,'y': .1}
+
+
+            Button:
+                text: "Back"
+                size_hint: (.2, .1)
+                pos_hint:{'x': .01,'y': .9}
+                on_release:
+                    app.root.current = "mainmenu"
+                    root.manager.transition.direction = "right"
+
+<Game>:
+    name: "gamescreen"
+
+    GridLayout:
+        cols:1
+
+        Button:
+            text: "Back"
+            on_release:
+                app.root.current = "mainmenu"
+                root.manager.transition.direction = "right"
+
+    Button:
+        text: "Back"
